@@ -1,30 +1,26 @@
-const CreateButtonPage = (
-  button,
-  setButton,
-  teamName,
-  setTeamName,
-  leaderName,
-  setLeaderName,
-  createTeam
-) => {
+import "./CreateButtonPage.css";
+
+const CreateButtonPage = (props) => {
   return (
-    <>
-      <p>teamName: </p>
+    <div className="question">
+      <h2>Add Information</h2>
+      <h3 className="Q">teamName</h3>
       <input
+        name="teamNameQuestion"
         type="text"
-        value={teamName}
-        onChange={(e) => setTeamName(e.target.value)}
+        placeholder="type your team name"
+        value={props.teamName}
+        onChange={(e) => props.setTeamName(e.target.value)}
       />
-      <p>leaderName: </p>
+      <h3 className="Q">leaderName</h3>
       <input
+        name="leaderNameQuestion"
         type="text"
-        value={leaderName}
-        onChange={(e) => setLeaderName(e.target.value)}
+        placeholder="type your leader name"
+        value={props.leaderName}
+        onChange={(e) => props.setLeaderName(e.target.value)}
       />
-      <div className="createButton" onClick={createTeam}>
-        create
-      </div>
-    </>
+    </div>
   );
 };
 

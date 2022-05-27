@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 import "./Apply.css";
 import CreateButtonPage from "../components/CreateButtonPage";
 
 const serverURL = "http://localhost:8080";
+
+// For CORS communication possible
+axios.defaults.withCredentials = true; // withCredentials global Setting
 
 const Apply = () => {
   // state
@@ -16,8 +20,8 @@ const Apply = () => {
 
   useEffect(() => {
     const asyncFun = async () => {
-      const { teamsData } = await axios.get(serverURL + `/team/showTeams`);
-      setTeams(teamsData);
+      const { data } = await axios.get(serverURL + `/team/showTeams`);
+      setTeams(data);
     };
     asyncFun().catch((e) => {
       return;
@@ -69,18 +73,15 @@ const Apply = () => {
       {/* teams list */}
       {Teams.map((val, i) => (
         <div key={i} className="team">
-          <p>{val.teamName}</p>
-          <p>{val.leaderName}</p>
-          <nav className="revision">
-            <li>
-              <div onClick={(e) => deleteTeam(`${val.id}`)}>delete</div>
-            </li>
-          </nav>
+          <h2>{val.teamName}</h2>
+          <h3>{val.leaderName}</h3>
+          <div onClick={(e) => deleteTeam(`${val._id}`)}>delete</div>
         </div>
       ))}
+
       {/* button: align right-bottom */}
       <div className="button" onClick={() => setButton((prev) => !prev)}>
-        button
+        Addbutton
       </div>
       {/* CRUD Implementation */}
 
@@ -94,14 +95,14 @@ const Apply = () => {
               back
             </div>
             <CreateButtonPage
-              button={button}
-              setButton={setButton}
               teamName={teamName}
               setTeamName={setTeamName}
               leaderName={leaderName}
               setLeaderName={setLeaderName}
-              createTeam={createTeam}
             />
+            <div className="createButton" onClick={createTeam}>
+              create
+            </div>
           </div>
         </div>
       ) : (
