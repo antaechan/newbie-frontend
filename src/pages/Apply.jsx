@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Apply.css";
+import CreateButtonPage from "../components/CreateButtonPage";
 
 const serverURL = "http://localhost:8080";
 
@@ -15,16 +16,22 @@ const Apply = () => {
 
   useEffect(() => {
     const asyncFun = async () => {
-      const { teamsData } = await axios.get(serverURL + `/showTeams`);
+      const { teamsData } = await axios.get(serverURL + `/team/showTeams`);
       setTeams(teamsData);
     };
-    asyncFun().catch((e) => window.alert(`Error: ${e}`));
+    asyncFun().catch((e) => {
+      return;
+      // window.alert(`Error: ${e}`)
+    });
   }, [button, changedDetected]);
 
   // implement CRUD
   const createTeam = () => {
     const asyncFun = async () => {
-      await axios.post(serverURL + "/createTeam", { teamName, leaderName });
+      await axios.post(serverURL + "/team/createTeam", {
+        teamName,
+        leaderName,
+      });
       setTeamName("");
       setLeaderName("");
       setButton(false);
@@ -35,7 +42,7 @@ const Apply = () => {
 
   const updateTeam = () => {
     const asyncFun = async () => {
-      await axios.post(serverURL + "/updateTeam", {
+      await axios.post(serverURL + "/team/updateTeam", {
         id: targetId,
         teamName,
         leaderName,
@@ -50,40 +57,10 @@ const Apply = () => {
 
   const deleteTeam = (id) => {
     const asyncFun = async () => {
-      await axios.post(serverURL + "/deleteTeam", { id: id });
+      await axios.post(serverURL + "/team/deleteTeam", { id: id });
       setChangedDetected((prev) => !prev);
     };
     asyncFun().catch((e) => window.alert(`Error: ${e}`));
-  };
-
-  const CreateButtonPage = () => {
-    return (
-      <div className="background">
-        <div className="createBox">
-          <div
-            className="backButton"
-            onClick={() => setButton((prev) => !prev)}
-          >
-            back
-          </div>
-          <p>teamName: </p>
-          <input
-            type="text"
-            value={teamName}
-            onChange={(e) => setTeamName(e.target.value)}
-          />
-          <p>leaderName: </p>
-          <input
-            type="text"
-            value={leaderName}
-            onChange={(e) => setLeaderName(e.target.value)}
-          />
-          <div className="createButton" onClick={createTeam}>
-            create
-          </div>
-        </div>
-      </div>
-    );
   };
 
   // HTML Apply page
@@ -101,14 +78,35 @@ const Apply = () => {
           </nav>
         </div>
       ))}
-
       {/* button: align right-bottom */}
       <div className="button" onClick={() => setButton((prev) => !prev)}>
         button
       </div>
-
       {/* CRUD Implementation */}
-      {button ? <CreateButtonPage /> : <div></div>}
+
+      {button ? (
+        <div className="background">
+          <div className="createBox">
+            <div
+              className="backButton"
+              onClick={() => setButton((prev) => !prev)}
+            >
+              back
+            </div>
+            <CreateButtonPage
+              button={button}
+              setButton={setButton}
+              teamName={teamName}
+              setTeamName={setTeamName}
+              leaderName={leaderName}
+              setLeaderName={setLeaderName}
+              createTeam={createTeam}
+            />
+          </div>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
