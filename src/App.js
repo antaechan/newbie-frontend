@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Main from "./pages/Main";
 import Record from "./pages/Record";
+import Match from "./pages/Match";
 import Apply from "./pages/Apply";
 import Info from "./pages/Info";
 
@@ -11,12 +12,15 @@ function App() {
     <>
       <div className="wrapper">
         <BrowserRouter>
-          <nav>
+          <nav className="Navbar">
             <li>
               <Link to="/">대회메인</Link>
             </li>
             <li>
               <Link to="Record">대회기록</Link>
+            </li>
+            <li>
+              <Link to="Match">경기일정</Link>
             </li>
             <li>
               <Link to="Apply">등록</Link>
@@ -28,6 +32,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="Record" element={<Record />} />
+            <Route path="Match" element={<Match />} />
             <Route path="Apply" element={<Apply />} />
             <Route path="Information" element={<Info />} />
           </Routes>

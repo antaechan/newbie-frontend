@@ -1,0 +1,46 @@
+.matchItem {
+  display: flex;
+  border: 1px solid;
+  align-content: center;
+}
+
+.matchTeamPart {
+  background-color: white;
+  width: 60%;
+}
+
+.matchScorePart {
+  background-color: white;
+  width: 20%;
+  text-align: right;
+}
+
+hr {
+  width: 5px;
+  background-color: grey;
+}
+
+.matchDatePart {
+  background-color: white;
+  width: 20%;
+  text-align: center;
+}
+
+.matchUpdatePart {
+  width: 100%;
+  display: flex;
+  text-align: center;
+}
+
+.matchScoreUpdatePart {
+  background-color: steelblue;
+  width: 80%;
+  text-align: center;
+}
+
+.matchDateUpdatePart {
+  background-color: tomato;
+  width: 20%;
+
+  text-align: center;
+}

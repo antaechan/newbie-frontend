@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   background-color: black;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .createBox {
@@ -27,7 +27,7 @@
   background-color: white;
 }
 
-.button {
+.AddButton {
   position: fixed;
   right: 30px;
   bottom: 120px;
@@ -38,16 +38,20 @@
   display: grid;
   justify-content: center;
   background-color: goldenrod;
-  transform: translateY(100%);
+  transform: translateY(20%);
 }
 
 .team {
-  background-color: green;
+  background-color: gray;
   color: white;
   width: 500px;
   height: 120px;
   padding: 15px 15px 40px 15px;
   margin: 15px 15px;
-  text-align: center;
+  text-align: left;
   border-radius: 10px;
+}
+
+.deleteButton {
+  text-align: right;
 }

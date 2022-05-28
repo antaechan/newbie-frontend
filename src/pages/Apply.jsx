@@ -24,8 +24,7 @@ const Apply = () => {
       setTeams(data);
     };
     asyncFun().catch((e) => {
-      return;
-      // window.alert(`Error: ${e}`)
+      window.alert(`Error: ${e}`);
     });
   }, [button, changedDetected]);
 
@@ -69,18 +68,24 @@ const Apply = () => {
 
   // HTML Apply page
   return (
-    <div className="teams">
-      {/* teams list */}
-      {Teams.map((val, i) => (
-        <div key={i} className="team">
-          <h2>{val.teamName}</h2>
-          <h3>{val.leaderName}</h3>
-          <div onClick={(e) => deleteTeam(`${val._id}`)}>delete</div>
-        </div>
-      ))}
-
+    <div>
+      <div className="teams">
+        {/* teams list */}
+        {Teams.map((val, i) => (
+          <div key={i} className="team">
+            <h2>TEAM {val.teamName}</h2>
+            <h3>주장 {val.leaderName}</h3>
+            <div
+              className="deleteButton"
+              onClick={(e) => deleteTeam(`${val._id}`)}
+            >
+              delete
+            </div>
+          </div>
+        ))}
+      </div>
       {/* button: align right-bottom */}
-      <div className="button" onClick={() => setButton((prev) => !prev)}>
+      <div className="AddButton" onClick={() => setButton((prev) => !prev)}>
         Addbutton
       </div>
       {/* CRUD Implementation */}
