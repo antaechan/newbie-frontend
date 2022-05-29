@@ -1,4 +1,4 @@
-.matchItem {
+.matchView {
   display: flex;
   border: 1px solid;
   align-content: center;
@@ -6,18 +6,17 @@
 
 .matchTeamPart {
   background-color: white;
-  width: 60%;
+  width: 75%;
 }
 
 .matchScorePart {
   background-color: white;
-  width: 20%;
-  text-align: right;
+  width: 5%;
+  text-align: center;
 }
 
 hr {
-  width: 5px;
-  background-color: grey;
+  background-color: black;
 }
 
 .matchDatePart {
@@ -26,8 +25,12 @@ hr {
   text-align: center;
 }
 
+.MatchDate {
+  font-size: 20px;
+  font-weight: 700;
+}
+
 .matchUpdatePart {
-  width: 100%;
   display: flex;
   text-align: center;
 }
