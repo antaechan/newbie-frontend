@@ -65,7 +65,7 @@ const Match = () => {
       {/* show all matches */}
       <div className="matches">
         {matches.map((val, i) => (
-          <div className="matchItem">
+          <div key={i} className="matchItem">
             <div key={i} className="matchView">
               <div className="matchTeamPart">
                 <h2>{val.team1}</h2>
