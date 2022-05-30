@@ -11,6 +11,7 @@ axios.defaults.withCredentials = true; // withCredentials global Setting
 
 const Match = () => {
   const [matches, setMatches] = useState([]);
+  const [sortedMatches, setSortedMatches] = useState([]);
   const [scoreButton, setScoreButton] = useState(false);
   const [dateButton, setDateButton] = useState(false);
   const [team1Score, setTeam1Score] = useState(0);
@@ -30,6 +31,18 @@ const Match = () => {
       window.alert(`Error: ${e}`);
     });
   }, [scoreButton, dateButton]);
+
+  useEffect(() => {
+    if (matches) {
+      setSortedMatches(
+        matches.sort((a, b) => {
+          const a_date = new Date(a.date);
+          const b_date = new Date(b.date);
+          return a_date - b_date;
+        })
+      );
+    }
+  }, [matches]);
 
   const updateMatchScore = async () => {
     const asyncFun = async () => {
@@ -68,7 +81,7 @@ const Match = () => {
     <div className="total">
       {/* show all matches */}
       <div className="matches">
-        {matches.map((val, i) => (
+        {sortedMatches.map((val, i) => (
           <div key={i} className="matchItem">
             <div key={i} className="matchView">
               <div className="matchTeamPart">
