@@ -4,8 +4,6 @@ import axios from "axios";
 import "./Apply.css";
 import CreateButtonPage from "../components/CreateButtonPage";
 
-const serverURL = "http://localhost:8080";
-
 // For CORS communication possible
 axios.defaults.withCredentials = true; // withCredentials global Setting
 
@@ -20,7 +18,9 @@ const Apply = () => {
 
   useEffect(() => {
     const asyncFun = async () => {
-      const { data } = await axios.get(serverURL + `/team/showTeams`);
+      const { data } = await axios.get(
+        axios.defaults.baseURL + `/team/showTeams`
+      );
       setTeams(data);
     };
     asyncFun().catch((e) => {
@@ -31,7 +31,7 @@ const Apply = () => {
   // implement CRUD
   const createTeam = () => {
     const asyncFun = async () => {
-      await axios.post(serverURL + "/team/createTeam", {
+      await axios.post(axios.defaults.baseURL + "/team/createTeam", {
         teamName,
         leaderName,
       });
@@ -45,7 +45,7 @@ const Apply = () => {
 
   const updateTeam = () => {
     const asyncFun = async () => {
-      await axios.post(serverURL + "/team/updateTeam", {
+      await axios.post(axios.defaults.baseURL + "/team/updateTeam", {
         id: targetId,
         teamName,
         leaderName,
@@ -60,7 +60,7 @@ const Apply = () => {
 
   const deleteTeam = (id) => {
     const asyncFun = async () => {
-      await axios.post(serverURL + "/team/deleteTeam", { id: id });
+      await axios.post(axios.defaults.baseURL + "/team/deleteTeam", { id: id });
       setChangedDetected((prev) => !prev);
     };
     asyncFun().catch((e) => window.alert(`Error: ${e}`));

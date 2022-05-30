@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Record.css";
 
-const serverURL = "http://localhost:8080";
-
 // For CORS communication possible
 axios.defaults.withCredentials = true; // withCredentials global Setting
 
@@ -132,9 +130,11 @@ const Record = () => {
 
   useEffect(() => {
     const asyncFun = async () => {
-      const { data: teamData } = await axios.get(serverURL + `/team/showTeams`);
+      const { data: teamData } = await axios.get(
+        axios.defaults.baseURL + `/team/showTeams`
+      );
       const { data: matchData } = await axios.get(
-        serverURL + `/match/showPreMatches`
+        axios.defaults.baseURL + `/match/showPreMatches`
       );
       setTeamRecords(teamData);
       setMatchRecords(matchData);

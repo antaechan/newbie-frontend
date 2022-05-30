@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Match.css";
-import "./Apply.css";
 import UpdateMatchScore from "../components/updateMatchScore";
 import UpdateMatchDate from "../components/updateMatchDate";
 
-const serverURL = "http://localhost:8080";
+import "./Match.css";
+import "./Apply.css";
 
 // For CORS communication possible
 axios.defaults.withCredentials = true; // withCredentials global Setting
@@ -21,7 +20,9 @@ const Match = () => {
 
   useEffect(() => {
     const asyncFun = async () => {
-      const { data } = await axios.get(serverURL + `/match/showMatches`);
+      const { data } = await axios.get(
+        axios.defaults.baseURL + `/match/showMatches`
+      );
       console.log(data);
       setMatches(data);
     };
@@ -32,7 +33,7 @@ const Match = () => {
 
   const updateMatchScore = async () => {
     const asyncFun = async () => {
-      await axios.post(serverURL + `/match/updateMatchScore`, {
+      await axios.post(axios.defaults.baseURL + `/match/updateMatchScore`, {
         id: updateId,
         team1Score: team1Score,
         team2Score: team2Score,
@@ -47,7 +48,7 @@ const Match = () => {
 
   const updateMatchDate = async () => {
     const asyncFun = async () => {
-      await axios.post(serverURL + `/match/updateMatchDate`, {
+      await axios.post(axios.defaults.baseURL + `/match/updateMatchDate`, {
         id: updateId,
         date: date,
       });
