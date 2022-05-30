@@ -1,0 +1,46 @@
+.TotalInfoPage {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.Rule {
+  background-color: silver;
+}
+
+.RuleTitle {
+  background-color: white;
+  height: 10%;
+  border-radius: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-left: 10px;
+}
+
+.RuleContent {
+  background-color: silver;
+  height: 110%;
+  font-size: 20px;
+  text-align: center;
+}
+
+.Plan {
+  background-color: lightblue;
+}
+
+.PlanTitle {
+  background-color: white;
+  height: 10%;
+  border-radius: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-left: 10px;
+}
+
+.PlanContent {
+  background-color: lightblue;
+  height: 110%;
+  font-size: 20px;
+  text-align: center;
+}

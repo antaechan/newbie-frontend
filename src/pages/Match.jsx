@@ -153,7 +153,7 @@ const Match = () => {
             </div>
             <UpdateMatchDate date={date} setDate={setDate} />
             <div className="updateButton" onClick={updateMatchDate}>
-              ⚡update⚡
+              ⚡Update⚡
             </div>
           </div>
         </div>
