@@ -102,7 +102,7 @@ const Match = () => {
                   {new Date(val.date).toLocaleString().slice(0, -3)}
                 </p>
                 {new Date(val.date).getTime() < new Date().getTime() ? (
-                  <h3>경기완료</h3>
+                  <h3 className="end">경기완료</h3>
                 ) : (
                   <h3>경기예정</h3>
                 )}

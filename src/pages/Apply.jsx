@@ -73,6 +73,7 @@ const Apply = () => {
         {/* teams list */}
         {Teams.map((val, i) => (
           <div key={i} className="team">
+            <hr />
             <h2 className="teamName">TEAM {val.teamName}</h2>
             <h3>👕 주장 {val.leaderName}</h3>
             <div

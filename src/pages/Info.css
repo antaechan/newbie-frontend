@@ -11,18 +11,20 @@
 
 .RuleTitle {
   background-color: white;
-  height: 10%;
+  height: 9%;
   border-radius: 10px;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin: 15px;
   padding-left: 10px;
+  padding-top: 1px;
+  padding-bottom: 8px;
 }
 
 .RuleContent {
   background-color: silver;
-  height: 110%;
+  height: calc(58% - 31px);
   font-size: 20px;
-  text-align: center;
+  text-align: left;
+  padding-left: 15px;
 }
 
 .Plan {
@@ -31,16 +33,36 @@
 
 .PlanTitle {
   background-color: white;
-  height: 10%;
+  height: 9%;
   border-radius: 10px;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin: 15px;
   padding-left: 10px;
+  padding-top: 1px;
+  padding-bottom: 8px;
 }
 
 .PlanContent {
   background-color: lightblue;
-  height: 110%;
+  height: 50%;
   font-size: 20px;
-  text-align: center;
+  text-align: left;
+  padding-left: 15px;
+}
+
+li {
+  font-size: 18px;
+}
+
+hr {
+  margin-right: 10px;
+}
+
+.goalpost {
+  width: 100%;
+  height: calc(40% - 24px);
+}
+
+.leftgoalpost {
+  width: 100%;
+  height: 33%;
 }
