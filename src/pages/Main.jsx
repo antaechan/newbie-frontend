@@ -1,11 +1,11 @@
-import React, {useState} from "react"
-
+import React, { useState } from "react";
+import "./Main.css";
 const Main = () => {
-    return (
-        <>
-            <p>This is main page</p>
-        </>                      
-    );
+  return (
+    <>
+      <img src="main.png" alt="Image Not Uploaded" className="main" />
+    </>
+  );
 };
 
 export default Main;

@@ -58,27 +58,34 @@ const Match = () => {
     asyncFun().catch((e) => window.alert(`Error: ${e}`));
   };
 
+  const Mark = (team1Score, team2Score) => {
+    const res = team1Score > team2Score ? "◀" : " ";
+    return res;
+  };
+
   return (
     <div className="total">
-      <p>This is Match page</p>
-
       {/* show all matches */}
       <div className="matches">
         {matches.map((val, i) => (
           <div key={i} className="matchItem">
             <div key={i} className="matchView">
               <div className="matchTeamPart">
-                <h2>{val.team1}</h2>
-                <h2>{val.team2}</h2>
+                <h2>⚽ {val.team1}</h2>
+                <h2>⚽ {val.team2}</h2>
               </div>
               <div className="matchScorePart">
-                <h2>{val.team1Score}</h2>
-                <h2>{val.team2Score}</h2>
+                <h2>
+                  {val.team1Score} {() => Mark(val.team1Score, val.team2Score)}
+                </h2>
+                <h2>
+                  {val.team2Score} {() => Mark(val.team2Score, val.team1Score)}
+                </h2>
               </div>
               <hr />
               <div className="matchDatePart">
                 <p className="MatchDate">
-                  {new Date(val.date).toLocaleString()}
+                  {new Date(val.date).toLocaleString().slice(0, -3)}
                 </p>
                 {new Date(val.date).getTime() < new Date().getTime() ? (
                   <h3>경기완료</h3>
@@ -119,7 +126,7 @@ const Match = () => {
               className="backButton"
               onClick={() => setScoreButton((prev) => !prev)}
             >
-              back
+              Back👈
             </div>
             <UpdateMatchScore
               team1Score={team1Score}
@@ -142,11 +149,11 @@ const Match = () => {
               className="backButton"
               onClick={() => setDateButton((prev) => !prev)}
             >
-              back
+              Back👈
             </div>
             <UpdateMatchDate date={date} setDate={setDate} />
             <div className="updateButton" onClick={updateMatchDate}>
-              update
+              ⚡update⚡
             </div>
           </div>
         </div>

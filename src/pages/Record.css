@@ -1,8 +1,22 @@
+.instruction {
+  width: 25%;
+  text-align: left;
+  background-color: silver;
+  height: 50px;
+  margin: 20px;
+  padding-top: 1px;
+  padding-left: 10px;
+  border-radius: 15px;
+}
+
+.tableDiv {
+  width: 100%;
+}
+
 .Ranking {
   width: 100%;
-  margin: 20px 20px 20px 20px;
+  justify-content: center;
   border-collapse: collapse;
-  align-content: center;
 }
 
 th,
@@ -10,9 +24,16 @@ td {
   border-bottom: 1px solid;
   text-align: center;
   padding: 15px;
+  font-size: 20px;
 }
 
 th {
   background-color: midnightblue;
   color: whitesmoke;
+}
+
+.td_ranking,
+.td_teamName,
+.td_point {
+  font-weight: bold;
 }

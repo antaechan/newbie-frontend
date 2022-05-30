@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   background-color: black;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .createBox {
@@ -24,27 +24,29 @@
   z-index: 990;
   width: 300px;
   height: 500px;
-  background-color: white;
+  background-color: yellow;
 }
 
 .AddButton {
   position: fixed;
   right: 30px;
-  bottom: 120px;
+  bottom: 100px;
+  font-size: 20px;
+  font-weight: bold;
   cursor: pointer;
 }
 
 .teams {
   display: grid;
-  justify-content: center;
-  background-color: goldenrod;
-  transform: translateY(20%);
-}
+  grid-template-columns: 50% 50%;
 
+  background-color: white;
+  margin-top: 10px;
+}
 .team {
   background-color: gray;
   color: white;
-  width: 500px;
+  width: 700px;
   height: 120px;
   padding: 15px 15px 40px 15px;
   margin: 15px 15px;
@@ -54,4 +56,15 @@
 
 .deleteButton {
   text-align: right;
+  font-size: 30px;
+  color: black;
+}
+
+.createButton {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.teamName {
+  color: beige;
 }

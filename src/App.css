@@ -22,7 +22,7 @@ body {
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #292d35;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -63,7 +63,7 @@ nav li {
 }
 
 nav li:hover {
-  background-color: darkgreen;
+  background-color: black;
 }
 
 .wrapper {
